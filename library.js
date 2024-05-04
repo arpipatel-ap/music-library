@@ -109,9 +109,16 @@ addTrack("New Song", "New Artist", "New Album");
 
 // adds a playlist to the library
 const addPlaylist = function(name) {
-
+       const playListId = generateUid();
+       const newPlayList = {
+              id: playListId,
+              name: name,
+              tracks: []
+       }
+       library.playlists[playListId] = newPlayList;
+       console.log(`playlist ${playListId} added: ${name}`);
 }
-
+addPlaylist("My Playlist");
 
 // STRETCH:
 // given a query string string, prints a list of tracks
