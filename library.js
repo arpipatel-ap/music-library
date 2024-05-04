@@ -75,9 +75,15 @@ printTrack("t02");
 
 // adds an existing track to an existing playlist
 const addTrackToPlaylist = function(trackId, playlistId) {
-
-}
-
+       const playlist = library.playlists[playlistId];
+       if (playlist) {
+           playlist.tracks.push(trackId);
+           console.log(`Track ${trackId} added to playlist ${playlistId}`);
+       } else {
+           console.log(`Playlist ${playlistId} not found`);
+       }
+     };
+     addTrackToPlaylist("t03", "p01");
 
 // generates a unique id
 // (already implemented: use this for addTrack and addPlaylist)
